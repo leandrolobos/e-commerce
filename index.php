@@ -1,16 +1,20 @@
-<?php
-include('./funciones.php');
-$productos = traer_productos();
-?>
+<?php include('./traer_productos.php'); ?>
+<?php $productos = traer_productos(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <?php include('./head.php') ?>
+      <?php include('./head.php'); ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <?php include('./navbar.php') ?>
+        <?php session_start(); var_dump($_SESSION);
+        if (isset ($_SESSION['user']) != "") {
+          include('./navbar_logueado.php');
+        } else {
+          include('./navbar_no_logueado.php');
+        }
+        ?>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
@@ -40,7 +44,7 @@ $productos = traer_productos();
                       <img src="<?php echo $producto['imagen'] ?>" />
                       <h4 class="text-left"><?php echo $producto['nombre'] ?></h4>
                       <h5 class="text-left">$<?php echo $producto['precio'] ?></h5>
-                      <button class="btn btn-agregar">Agregar</button>
+                      <button data-id="<?php echo $producto['id'] ?>" data-imagen="<?php echo $producto['imagen'] ?>" data-precio="<?php echo $producto['precio'] ?>" data-nombre="<?php echo $producto['nombre'] ?>" class="btn btn-agregar">Agregar</button>
                     </div>
                   </div>
                 <?php } ?>

@@ -54,3 +54,35 @@
     // Collapse the navbar when page is scrolled
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
+
+    $('.btn-agregar').click(function(){
+      var precio = $(this).attr("data-precio");
+      var imagen = $(this).attr("data-imagen");
+      var nombre = $(this).attr("data-nombre");
+      var id_usuario = $("#user_dni").val();
+      var id = $(this).attr("data-id");
+      console.log(id, id_usuario);
+      $.post("agregar_carrito.php", {
+        id: id,
+        id_usuario: id_usuario,
+        precio: precio,
+        imagen: imagen,
+        nombre: nombre
+      }, function(result){
+        alert("Producto insertado!");
+      });
+    })
+
+    $('.cantidad').change(function(){
+      var cantidad = $(this).val();
+      var precio = $(this).parent().parent().find('.precio').text();
+      var subtotal = cantidad * precio;
+      $(this).parent().parent().find('.subtotal').text(subtotal);
+
+      total = 0;
+      $(".subtotal").each(function() {
+        total = parseInt($(this).text()) + total;
+      });
+
+      $("#total").text(total);
+    })

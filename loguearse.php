@@ -1,17 +1,5 @@
 <?php
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-
-  $data = $_POST;
-
-  $enlace = mysqli_connect("127.0.0.1", "root", "", "template");
-
-  if (!$enlace) {
-      echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
-      echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
-      echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
-      exit;
-  }
+  include('./modelos/modelo.php');
 
   $sql = "SELECT * FROM usuarios WHERE dni = '".$data["dni"]."'";
 
@@ -24,12 +12,15 @@
 
       if (password_verify($data['password'], $hash)) {
         echo "La contraseña es válida";
+        session_start();
+        $_SESSION['user'] = $usuario['dni'];
+        header("refresh:1;url=http://localhost/template");
       } else {
+        session_destroy();
         echo "La contraseña no es válida";
       }
     }
   } else {
     echo "Su usuario no se encuentra registrado";
   }
-
 ?>

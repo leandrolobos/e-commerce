@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <?php include('./head.php') ?>
+      <?php include('./head.php'); ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <?php include('./navbar.php') ?>
+        <?php session_start(); var_dump($_SESSION);
+        if (isset ($_SESSION['user']) != "") {
+          include('./navbar_logueado.php');
+        } else {
+          include('./navbar_no_logueado.php');
+        }
+        ?>
         <!-- Masthead-->
         <header class="masthead-login">
             <div class="container d-flex h-100 align-items-center">

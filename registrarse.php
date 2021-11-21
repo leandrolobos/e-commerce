@@ -1,8 +1,5 @@
 <?php
-  error_reporting(E_ALL);
-  ini_set('display_errors', 1);
-
-  $data = $_POST;
+  include('./modelos/modelo.php');
 
   if ($data['password'] != $data['password2']) {
     echo "Las contraseñas no coinciden";
@@ -13,8 +10,6 @@
 
   unset($data['password2']);
   $data['habilitado'] = true;
-
-  $enlace = mysqli_connect("127.0.0.1", "root", "", "template");
 
   if (!$enlace) {
       echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
@@ -31,5 +26,4 @@
   } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($enlace);
   }
-
 ?>

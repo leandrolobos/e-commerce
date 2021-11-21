@@ -2,10 +2,18 @@
 <html lang="en">
     <head>
       <?php include('./head.php') ?>
+      <?php include('./traer_carrito.php') ?>
+      <?php $carrito = traer_carrito(); ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <?php include('./navbar.php') ?>
+        <?php session_start(); var_dump($_SESSION);
+        if (isset ($_SESSION['user']) != "") {
+          include('./navbar_logueado.php');
+        } else {
+          include('./navbar_no_logueado.php');
+        }
+        ?>
         <!-- Carrito-->
         <section class="carrito-section" id="carrito">
             <div class="container">
@@ -25,26 +33,20 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php foreach ($carrito as $item){ ?>
                         <tr>
-                          <td class="align-middle"><img src="img/ensalada.png" /></td>
-                          <td class="align-middle text-left">Ensalada</td>
+                          <td class="align-middle"><img src="<?php echo $item['imagen']; ?>" /></td>
+                          <td class="align-middle text-left"><?php echo $item['nombre']; ?></td>
                           <td class="align-middle text-center">
-                            <input type="number" class="form-control" placeholder="01" id="cantidad">
+                            <input type="number" class="form-control cantidad" placeholder="1" value="1">
                           </td>
-                          <td class="align-middle text-center">$300</td>
-                          <td class="align-middle text-center">$300</td>
+                          <td class="align-middle text-center">$<span class="precio"><?php echo $item['precio']; ?></span></td>
+                          <td class="align-middle text-center">$<span class="subtotal"><?php echo $item['precio']; ?></span></td>
                         </tr>
-                        <tr>
-                          <td class="align-middle"><img src="img/pizza.png" /></td>
-                          <td class="align-middle text-left">Pizza</td>
-                          <td class="align-middle text-center">
-                            <input type="number" class="form-control" placeholder="01" id="cantidad">
-                          </td>
-                          <td class="align-middle text-center">$500</td>
-                          <td class="align-middle text-center">$800</td>
-                        </tr>
+                      <?php } ?>
                       </tbody>
                     </table>
+                    <h5>Total de la compra: $<span id="total"></span></h5>
                   </div>
                 </div>
                 <div class="row justify-content-end">
