@@ -14,7 +14,8 @@
         echo "La contraseña es válida";
         session_start();
         $_SESSION['user'] = $usuario['dni'];
-        header("refresh:1;url=http://localhost/template");
+        header("Location: index.php");
+        die();
       } else {
         session_destroy();
         echo "La contraseña no es válida";

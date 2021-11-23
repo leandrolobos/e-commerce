@@ -1,10 +1,11 @@
-<?php include('./traer_productos.php'); ?>
-<?php $productos = traer_productos(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <?php include('./head.php'); ?>
+      <?php
+      include('./head.php');
+      include('./traer_productos.php');
+      $productos = traer_productos();
+      ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -18,13 +19,13 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
-              <div class="col-6 mx-auto">
+              <div class="col-12 col-md-6 mx-auto">
                 <div class="text-left">
                     <h1 class="my-0">Comprá online desde tu casa.</h1>
                     <h2 class="mt-3 mb-5">¡Nosotros te lo llevamos!</h2>
                 </div>
               </div>
-              <div class="col-6">
+              <div class="col-6 d-none d-md-block">
                 <img src="img/hero.png"/>
               </div>
             </div>
@@ -39,7 +40,7 @@
                 </div>
                 <div class="row align-items-end">
                   <?php foreach ($productos as $producto){ ?>
-                  <div class="col-xl-3 col-6 mt-4">
+                  <div class="col-xl-3 col-md-6 col-12 mt-4">
                     <div class="producto text-center p-4">
                       <img src="<?php echo $producto['imagen'] ?>" />
                       <h4 class="text-left"><?php echo $producto['nombre'] ?></h4>

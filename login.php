@@ -15,7 +15,7 @@
         <!-- Masthead-->
         <header class="masthead-login">
             <div class="container d-flex h-100 align-items-center">
-              <div class="col-4">
+              <div class="col-8 col-md-4">
                 <div class="text-left">
                     <h1 class="my-0 txt-black mb-4">login</h1>
                     <form method="post" action="./loguearse.php">

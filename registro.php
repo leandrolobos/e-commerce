@@ -21,21 +21,21 @@
                     <form method="post" action="./registrarse.php">
                       <div class="container">
                         <div class="row">
-                          <div class="col-3">
+                          <div class="col-6 col-md-3">
                             <input type="text" name="dni" class="form-control mb-4" placeholder="DNI">
                             <input type="text" name="nombre" class="form-control mb-4" placeholder="Nombre">
                             <input type="text" name="apellido" class="form-control mb-4" placeholder="Apellido">
                           </div>
-                          <div class="col-3">
+                          <div class="col-6 col-md-3">
                             <input type="email" name="email" class="form-control mb-4" placeholder="E-mail">
                             <input type="text" name="telefono" class="form-control mb-4" placeholder="Teléfono">
                           </div>
-                          <div class="col-3">
+                          <div class="col-6 col-md-3">
                             <input type="text" name="calle" class="form-control mb-4" placeholder="Calle">
                             <input type="text" name="num_calle" class="form-control mb-4" placeholder="Número">
                             <input type="text" name="cod_postal" class="form-control mb-4" placeholder="Código postal">
                           </div>
-                          <div class="col-3">
+                          <div class="col-6 col-md-3">
                             <input type="password" name="password" class="form-control mb-4" placeholder="Contraseña">
                             <input type="password" name="password2" class="form-control mb-4" placeholder="Confirmar contraseña">
                           </div>
