@@ -5,20 +5,14 @@
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <?php session_start(); var_dump($_SESSION);
-        if (isset ($_SESSION['user']) != "") {
-          include('./navbar_logueado.php');
-        } else {
-          include('./navbar_no_logueado.php');
-        }
-        ?>
+        <?php include("./controladores/sesion.php");?>
         <!-- Masthead-->
         <header class="masthead-login">
             <div class="container d-flex h-100 align-items-center">
               <div class="col-12">
                 <div class="text-left">
                     <h1 class="my-0 txt-black mb-4">registro</h1>
-                    <form method="post" action="./registrarse.php">
+                    <form method="post" action="./controladores/registrarse.php">
                       <div class="container">
                         <div class="row">
                           <div class="col-6 col-md-3">
@@ -28,7 +22,7 @@
                           </div>
                           <div class="col-6 col-md-3">
                             <input type="email" name="email" class="form-control mb-4" placeholder="E-mail">
-                            <input type="text" name="telefono" class="form-control mb-4" placeholder="Teléfono">
+                            <input type="tel" name="telefono" class="form-control mb-4" placeholder="Teléfono">
                           </div>
                           <div class="col-6 col-md-3">
                             <input type="text" name="calle" class="form-control mb-4" placeholder="Calle">
@@ -41,7 +35,7 @@
                           </div>
                         </div>
                       </div>
-                      <button type="submit" class="btn btn-login btn-block">Registrar</button>
+                      <button type="submit" name="registrar" class="btn btn-login btn-block">Registrar</button>
                       <h6 class="mt-3">¿Ya tenés cuenta? <a href="./login.php">Logueate</a> </h6>
                     </form>
                 </div>

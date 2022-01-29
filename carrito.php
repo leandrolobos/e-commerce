@@ -2,18 +2,12 @@
 <html lang="en">
     <head>
       <?php include('./head.php') ?>
-      <?php include('./traer_carrito.php') ?>
+      <?php include('./controladores/traer_carrito.php') ?>
       <?php $carrito = traer_carrito(); ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <?php session_start(); var_dump($_SESSION);
-        if (isset ($_SESSION['user']) != "") {
-          include('./navbar_logueado.php');
-        } else {
-          include('./navbar_no_logueado.php');
-        }
-        ?>
+        <?php include("./controladores/sesion.php");?>
         <!-- Carrito-->
         <section class="carrito-section" id="carrito">
             <div class="container">
@@ -50,7 +44,8 @@
                   </div>
                 </div>
                 <div class="row justify-content-end">
-                  <button class="btn btn-comprar">Iniciar compra</button>
+                  <a class="btn btn-comprar" href="./controladores/eliminar_carrito.php">Eliminar carrito</a>
+                  <a class="btn btn-comprar" href="http://wa.me/5492617001619" target="_blank">Iniciar compra</a>
                 </div>
             </div>
         </section>

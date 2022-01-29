@@ -62,14 +62,14 @@
       var id_usuario = $("#user_dni").val();
       var id = $(this).attr("data-id");
       console.log(id, id_usuario);
-      $.post("agregar_carrito.php", {
+      $.post("./controladores/agregar_carrito.php", {
         id: id,
         id_usuario: id_usuario,
         precio: precio,
         imagen: imagen,
         nombre: nombre
       }, function(result){
-        alert("Producto insertado!");
+        alert("¡Producto insertado!");
       });
     })
 

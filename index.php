@@ -3,19 +3,13 @@
     <head>
       <?php
       include('./head.php');
-      include('./traer_productos.php');
+      include('./controladores/traer_productos.php');
       $productos = traer_productos();
       ?>
     </head>
     <body id="page-top">
         <!-- Navigation-->
-        <?php session_start(); var_dump($_SESSION);
-        if (isset ($_SESSION['user']) != "") {
-          include('./navbar_logueado.php');
-        } else {
-          include('./navbar_no_logueado.php');
-        }
-        ?>
+        <?php include("./controladores/sesion.php");?>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container d-flex h-100 align-items-center">
