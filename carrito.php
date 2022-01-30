@@ -44,8 +44,8 @@
                   </div>
                 </div>
                 <div class="row justify-content-end">
-                  <a class="btn btn-comprar" href="./controladores/eliminar_carrito.php">Eliminar carrito</a>
-                  <a class="btn btn-comprar" href="http://wa.me/5492617001619" target="_blank">Iniciar compra</a>
+                  <a class="btn btn-comprar m-1" href="./controladores/eliminar_carrito.php">Vaciar carrito</a>
+                  <a class="btn btn-comprar m-1" href="http://wa.me/5492617001619" target="_blank">Iniciar compra</a>
                 </div>
             </div>
         </section>

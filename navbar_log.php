@@ -9,7 +9,9 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#productos">productos</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contacto">contacto</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="./controladores/cerrar_sesion.php">cerrar sesión</a></li>
                 <span id='logueado'><li class="nav-item"><a class="nav-link js-scroll-trigger" href="carrito.php"><i class="fas fa-shopping-basket"></i></a></li></span>
+
             </ul>
         </div>
     </div>

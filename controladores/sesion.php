@@ -1,4 +1,4 @@
-<?php session_start();
+<?php @session_start();
 if (isset ($_SESSION['user']) != "") {
   include('./navbar_log.php');
 } else {

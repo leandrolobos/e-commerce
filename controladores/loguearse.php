@@ -1,4 +1,5 @@
 <?php
+  session_start();
   include('conexion.php');
   $data = $_POST;
 
@@ -13,9 +14,8 @@
 
       if (password_verify($data['password'], $hash)) {
         echo "La contraseña es válida";
-        session_start();
         $_SESSION['user'] = $usuario['dni'];
-        header("Location: ../index.php");
+        echo '<script language="javascript">window.location="../index.php"</script>';
         die();
       } else {
           ?>
